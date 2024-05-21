@@ -16,10 +16,7 @@ mount(Root, document.body); */
 
 
   //para que se enfoque en la barra de busqueda
-  setup() {
-    const inputRef = useRef("add-input");
-    onMounted(() => inputRef.el.focus());
-}
+ 
 // Owl Components
 class Task extends Component {
     static template = xml /* xml */`
@@ -33,6 +30,10 @@ class Task extends Component {
 
     //creando el segundo componente
     class Root extends Component {
+      setup() {
+        const inputRef = useRef("add-input");
+        onMounted(() => inputRef.el.focus());
+    }
         static template = xml /* xml */`
         <div class="todo-app">
     <input placeholder="Ingrese una Tarea" t-on-keyup="addTask" t-ref="add-input" />
